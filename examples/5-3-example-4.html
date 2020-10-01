@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/preview.css">
+const container = document.querySelector("#container");
+
+const { containerWidth, containerHeight } = computeDesiredSize();
+requestAnimationFrame(() => {
+ container.style.width = containerWidth;
+ container.style.height = containerHeight;
+});
+
+// ...
+
+const img = new Image();
+img.src = "placeholder.png";
+img.decode().then(() => {
+    requestAnimationFrame(() => container.appendChild(img));
+});

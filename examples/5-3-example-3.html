@@ -1,0 +1,8 @@
+<link rel="stylesheet" href="/preview.css">
+const img = new Image();
+img.src = "placeholder.png";
+img.decode().then(() => {
+    document.body.appendChild(img);
+}).catch(() => {
+    document.body.appendChild(new Text("Could not load the nebula :("));
+});

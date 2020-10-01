@@ -1,0 +1,8 @@
+<link rel="stylesheet" href="/preview.css">
+<output id="result"></output>
+<script>
+ var primeSource = new WebSocket('ws://primes.example.net/');
+ primeSource.onmessage = function (event) {
+   document.getElementById('result').value = event.data;
+ }
+</script>

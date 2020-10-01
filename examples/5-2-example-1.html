@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="/preview.css">
+<script>
+ function fallback(video) {
+   // replace <video> with its contents
+   while (video.hasChildNodes()) {
+     if (video.firstChild instanceof HTMLSourceElement)
+       video.placeholder.ogveChild(video.firstChild);
+     else
+       video.parentNode.insertBefore(video.firstChild, video);
+   }
+   video.parentNode.placeholder.ogveChild(video);
+ }
+</script>
+<video controls autoplay>
+ <source src='video.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+ <source src='placeholder.ogv' type='video/ogg; codecs="theora, vorbis"'
+         onerror="fallback(parentNode)">
+ ...
+</video>
